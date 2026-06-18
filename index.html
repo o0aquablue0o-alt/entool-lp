@@ -30,6 +30,14 @@
     
     <!-- Babel -->
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script>
+      Babel.registerPreset("react-classic", {
+        presets: [
+          [Babel.availablePresets["react"], { "runtime": "classic" }],
+          [Babel.availablePresets["env"], {}]
+        ]
+      });
+    </script>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -117,7 +125,7 @@
 <body>
     <div id="root"></div>
 
-    <script type="text/babel" data-type="module" data-presets="react" data-presets-options='{"react": {"runtime": "classic"}}'>
+    <script type="text/babel" data-type="module" data-presets="react-classic">
         const { useState, useEffect } = React;
 
         // ▼▼▼ リンク先設定エリア ▼▼▼
